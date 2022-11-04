@@ -1,4 +1,4 @@
-package com.petprojects.fraud;
+package com.petprojects.clients.fraud;
 
 public record FraudCheckResponse(Boolean isFraudster) {
 
