@@ -1,4 +1,4 @@
-package com.petprojects.notification;
+package com.petprojects.notification.entity;
 
 import lombok.*;
 

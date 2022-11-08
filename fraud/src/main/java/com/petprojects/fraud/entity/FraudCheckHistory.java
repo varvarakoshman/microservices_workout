@@ -1,4 +1,4 @@
-package com.petprojects.fraud;
+package com.petprojects.fraud.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

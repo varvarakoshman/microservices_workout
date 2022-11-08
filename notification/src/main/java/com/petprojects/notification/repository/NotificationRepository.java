@@ -1,5 +1,6 @@
-package com.petprojects.notification;
+package com.petprojects.notification.repository;
 
+import com.petprojects.notification.entity.Notification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

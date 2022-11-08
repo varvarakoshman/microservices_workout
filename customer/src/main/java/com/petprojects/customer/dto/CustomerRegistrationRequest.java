@@ -1,4 +1,4 @@
-package com.petprojects.customer;
+package com.petprojects.customer.dto;
 
 public record CustomerRegistrationRequest(
         String firstName,

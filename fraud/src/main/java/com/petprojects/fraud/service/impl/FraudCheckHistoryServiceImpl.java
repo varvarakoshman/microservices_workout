@@ -1,5 +1,8 @@
-package com.petprojects.fraud;
+package com.petprojects.fraud.service.impl;
 
+import com.petprojects.fraud.entity.FraudCheckHistory;
+import com.petprojects.fraud.repository.FraudCheckHistoryRepository;
+import com.petprojects.fraud.service.FraudCheckHistoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -7,7 +10,7 @@ import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
-public class FraudCheckHistoryService {
+public class FraudCheckHistoryServiceImpl implements FraudCheckHistoryService {
 
     private final FraudCheckHistoryRepository fraudCheckHistoryRepository;
 

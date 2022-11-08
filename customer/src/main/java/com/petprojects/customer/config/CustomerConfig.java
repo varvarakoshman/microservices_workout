@@ -1,4 +1,4 @@
-package com.petprojects.customer;
+package com.petprojects.customer.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;

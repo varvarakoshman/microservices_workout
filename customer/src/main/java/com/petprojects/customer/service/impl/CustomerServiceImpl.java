@@ -1,15 +1,19 @@
-package com.petprojects.customer;
+package com.petprojects.customer.service.impl;
 
 import com.petprojects.clients.fraud.FraudCheckResponse;
 import com.petprojects.clients.fraud.FraudClient;
 import com.petprojects.clients.notification.NotificationClient;
 import com.petprojects.clients.notification.NotificationRequest;
+import com.petprojects.customer.dto.CustomerRegistrationRequest;
+import com.petprojects.customer.entity.Customer;
+import com.petprojects.customer.repository.CustomerRepository;
+import com.petprojects.customer.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class CustomerService {
+public class CustomerServiceImpl implements CustomerService {
 
     private final CustomerRepository customerRepository;
     private final FraudClient fraudClient;

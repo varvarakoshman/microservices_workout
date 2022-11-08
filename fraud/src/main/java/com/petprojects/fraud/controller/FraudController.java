@@ -1,6 +1,7 @@
-package com.petprojects.fraud;
+package com.petprojects.fraud.controller;
 
 import com.petprojects.clients.fraud.FraudCheckResponse;
+import com.petprojects.fraud.service.FraudCheckHistoryService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

@@ -2,7 +2,7 @@ package com.petprojects.notification.mapper;
 
 import com.petprojects.clients.notification.NotificationRequest;
 import com.petprojects.clients.notification.NotificationResponse;
-import com.petprojects.notification.Notification;
+import com.petprojects.notification.entity.Notification;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

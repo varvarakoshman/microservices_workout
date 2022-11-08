@@ -1,8 +1,11 @@
-package com.petprojects.notification;
+package com.petprojects.notification.service.impl;
 
 import com.petprojects.clients.notification.NotificationRequest;
 import com.petprojects.clients.notification.NotificationResponse;
+import com.petprojects.notification.entity.Notification;
 import com.petprojects.notification.mapper.NotificationMapper;
+import com.petprojects.notification.repository.NotificationRepository;
+import com.petprojects.notification.service.NotificationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -12,7 +15,7 @@ import java.time.LocalDateTime;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class NotificationService {
+public class NotificationServiceImpl implements NotificationService {
 
     private final NotificationRepository notificationRepository;
 

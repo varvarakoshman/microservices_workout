@@ -1,7 +1,8 @@
-package com.petprojects.notification;
+package com.petprojects.notification.controller;
 
 import com.petprojects.clients.notification.NotificationRequest;
 import com.petprojects.clients.notification.NotificationResponse;
+import com.petprojects.notification.service.NotificationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
