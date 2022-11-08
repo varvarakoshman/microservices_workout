@@ -2,17 +2,18 @@ package com.petprojects.customer;
 
 import com.petprojects.clients.fraud.FraudCheckResponse;
 import com.petprojects.clients.fraud.FraudClient;
+import com.petprojects.clients.notification.NotificationClient;
+import com.petprojects.clients.notification.NotificationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 @Service
 @RequiredArgsConstructor
 public class CustomerService {
 
     private final CustomerRepository customerRepository;
-    private final RestTemplate restTemplate;
     private final FraudClient fraudClient;
+    private final NotificationClient notificationClient;
 
     public void registerCustomer(CustomerRegistrationRequest customerRequest) {
         Customer customer = Customer.builder()
@@ -30,6 +31,11 @@ public class CustomerService {
         if (fraudCheckResponse.isFraudster()) {
             throw new IllegalStateException("fraudster");
         }
-        // todo: send notification
+        notificationClient.sendNotification(getCustomerNotification(customer));
+    }
+
+    private NotificationRequest getCustomerNotification(Customer customer) {
+        String message = String.format("Hello %s, you were successfully registered", customer.getFirstName());
+        return new NotificationRequest(customer.getId(), customer.getEmail(), message);
     }
 }
