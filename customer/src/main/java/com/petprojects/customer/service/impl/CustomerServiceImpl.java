@@ -1,5 +1,6 @@
 package com.petprojects.customer.service.impl;
 
+import com.petprojects.amqp.RabbitMQMessageProducer;
 import com.petprojects.clients.fraud.FraudCheckResponse;
 import com.petprojects.clients.fraud.FraudClient;
 import com.petprojects.clients.notification.NotificationClient;
@@ -17,7 +18,8 @@ public class CustomerServiceImpl implements CustomerService {
 
     private final CustomerRepository customerRepository;
     private final FraudClient fraudClient;
-    private final NotificationClient notificationClient;
+//    private final NotificationClient notificationClient;
+    private final RabbitMQMessageProducer rabbitMQMessageProducer;
 
     public void registerCustomer(CustomerRegistrationRequest customerRequest) {
         Customer customer = Customer.builder()
@@ -35,7 +37,9 @@ public class CustomerServiceImpl implements CustomerService {
         if (fraudCheckResponse.isFraudster()) {
             throw new IllegalStateException("fraudster");
         }
-        notificationClient.sendNotification(getCustomerNotification(customer));
+//        notificationClient.sendNotification(getCustomerNotification(customer));
+        rabbitMQMessageProducer.publish(getCustomerNotification(customer), "internal.exchange",
+                "internal.notification.routing-key");
     }
 
     private NotificationRequest getCustomerNotification(Customer customer) {
